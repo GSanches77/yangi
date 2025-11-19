@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gustavo Sanches, Arthur Barros">
+    <title>Yangi | Streetwear - Home</title>
+    <link rel="icon" href="assets/icon1.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" aria-label="Voltar para a página inicial Yangi">
+            <div class="logo"><img src="assets/yangi.jpeg" alt="Yangi Logo"></div>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="produtos.html">Shop</a></li>
+                <li><a href="produtos.html" data-collection="nagashi">"Nagashi"</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="minhaconta.html">Minha conta</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" class="search-form" action="#" method="get" role="search">
+            <input type="text" id="search-input" placeholder="Buscar produtos" aria-label="Buscar produtos">
+            <button type="submit" aria-label="Executar busca">🔍</button>
+        </form>
+    </header>
+
+    <main>
+        <section id="hero-banner" class="hero-banner">
+            <h1>Cultura. Rua. Essência.</h1>
+            <p>Descubra a coleção "Nagashi" — o novo fluído do streetwear.</p>
+            <a href="produtos.html" class="cta-button">Ver Coleção</a>
+        </section>
+
+        <section id="destaques" class="produtos fade-in-section">
+            <h2>Destaques da Semana</h2>
+            <div class="produtos-container">
+                <div class="produto" data-id="1" data-nome="Yangi Classic" data-price="89.90">
+                    <img src="assets/yangiclassic.png" alt="Yangi Classic">
+                    <p>Yangi Classic</p>
+                    <span>R$89,90</span>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto" data-id="2" data-nome="Yangi Duo" data-price="89.90">
+                    <img src="assets/yangitwo.png" alt="Yangi Duo">
+                    <p>Yangi Duo</p>
+                    <span>R$89,90</span>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto" data-id="3" data-nome='Yangi "Nagashi" Shisui' data-price="119.90">
+                    <img src="assets/shisui.png" alt="Yangi Shisui">
+                    <p>Yangi "Nagashi" Shisui</p>
+                    <span>R$119,90</span>
+                    <button class="add-to-cart">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fade-in-section">
+        <p>© 2025 Yangi. Todos os direitos reservados.</p>
+        <p>Contato: (11) 94709-0626</p>
+        <p>Instagram: @yangi.co</p>
+        <p>Desenvolvimento: Gustavo Sanches & Arthur Barros</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

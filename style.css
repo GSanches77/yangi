@@ -1,0 +1,643 @@
+/* ========================= */
+/* 3. Seção Hero Banner (Nova Seção) */
+/* ========================= */
+.hero-banner {
+    /* Centraliza o conteúdo horizontal e verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Configurações visuais */
+    width: 100%;
+    padding: 100px 20px; /* Padding generoso */
+    background-color: #000; /* Fundo preto total */
+    text-align: center;
+    min-height: 40vh; /* Garante que ocupe um bom espaço na tela */
+}
+
+.hero-banner h1 {
+    font-size: 5vw; /* Tamanho responsivo para telas maiores */
+    color: white; /* Texto em branco */
+    text-transform: uppercase;
+    letter-spacing: 10px; /* Aumenta o espaçamento entre letras */
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.hero-banner p {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+/* Estilo para o Botão CTA (Call to Action) */
+.cta-button {
+    text-decoration: none;
+    background-color: white; /* Botão claro no fundo escuro */
+    color: #000;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+    transform: translateY(-2px); /* Efeito sutil de hover */
+}
+
+/* Ajuste de responsividade para o título em telas menores */
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 80px 10px;
+    }
+    .hero-banner h1 {
+        font-size: 8vw; /* Maior em mobile para visibilidade */
+        letter-spacing: 5px;
+    }
+    .hero-banner p {
+        font-size: 1.2rem;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* ========================= */
+/* 1. Reset e Configuração Base */
+/* ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fonte Streetwear/Modern: Usando Helvetica como fallback clássico */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a1a1a; /* Cor de texto padrão mais escura que #333 */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o footer fique no final */
+    background-color: #f7f7f7; /* Fundo leve para contraste */
+}
+
+main {
+    width: 100%;
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+}
+
+/* ========================= */
+/* 2. Header e Navegação */
+/* ========================= */
+header {
+    width: 100%;
+    background-color: #000;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between; /* Espaçamento mais limpo */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .logo img {
+    width: 80px; /* Logo um pouco menor */
+    height: auto;
+    transition: transform 0.3s;
+}
+header .logo:hover img {
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Reduzi o gap para mais espaço em telas maiores */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ccc;
+    border-bottom: 2px solid white;
+}
+
+/* Formulário de Busca */
+header .search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 50px; /* Afasta um pouco da nav */
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+header .search-form input {
+    padding: 8px 12px;
+    border: none;
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+header .search-form input::placeholder {
+    color: #aaa;
+}
+
+header .search-form button {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+header .search-form button:hover {
+    background-color: #333;
+}
+
+/* Menu Toggle (Mobile) - Estilos para o ícone Hamburguer */
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+}
+
+.icon-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+    transition: all 0.3s linear;
+    transform-origin: 1px;
+}
+
+/* Animação do X no menu-toggle.js */
+.menu-toggle.active .icon-bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .icon-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ========================= */
+/* 3. Seção de Produtos (Shop) */
+/* ========================= */
+.produtos {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.produtos h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Aumenta o gap para melhor espaçamento visual */
+    justify-content: center; /* Centraliza no eixo principal */
+}
+
+.produto {
+    flex: 0 1 300px; /* Flexbox base mais moderno */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+    box-sizing: border-box; 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.produto:hover {
+    transform: translateY(-5px); /* Efeito de elevação sutil */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.produto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.produto p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.produto span {
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+    display: block;
+    margin-top: 5px;
+}
+
+.produto .add-to-cart {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.produto .add-to-cart:hover {
+    background-color: #333;
+}
+
+/* ========================= */
+/* 4. Página Minha Conta (Login) */
+/* ========================= */
+.login-form {
+    padding: 40px;
+    max-width: 450px; /* Aumenta um pouco para melhor UX */
+    margin: 60px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login-form legend {
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.login-form label {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-form input:focus {
+    border-color: #000;
+    outline: none;
+}
+
+.login-form .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    display: block; /* Garante que ocupe a linha para feedback visual */
+}
+
+.login-form button {
+    padding: 12px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+/* ========================= */
+/* 5. Página Sobre Nós */
+/* ========================= */
+
+.hero-sobre {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.hero-sobre h1 {
+    font-size: 48px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.imagem-sobre {
+    width: 90%; /* Ajustado para deixar margem nas laterais */
+    max-width: 1200px;
+    max-height: 600px; 
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto 60px auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-sobre {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.texto-missao {
+    padding: 20px;
+    background-color: white;
+    border-left: 5px solid #000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.texto-missao h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.texto-missao p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Estilo para o texto antigo (h4) que foi substituído */
+/* h4 {
+    font-size: 16px;
+    text-align: center; 
+    line-height: 1.8; 
+    color: #333; 
+    margin: 40px auto;
+    max-width: 800px; 
+}
+*/
+
+/* ========================= */
+/* 6. Catálogo (Produtos.html) */
+/* ========================= */
+.shop-content {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sidebar-filters {
+    width: 250px;
+    padding: 20px;
+    margin-right: 40px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.sidebar-filters h3 {
+    margin-bottom: 25px;
+    font-size: 20px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.filter-group select,
+.filter-group input[type="range"] {
+    width: 100%;
+}
+
+.filter-group #price-value {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Estilo para a lista de produtos no catálogo */
+#catalogo.produtos {
+    padding: 0;
+    flex-grow: 1;
+}
+
+#catalogo .produtos-container {
+    justify-content: flex-start;
+}
+
+/* ========================= */
+/* 7. Footer */
+/* ========================= */
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+    margin-top: auto; /* Empurra para o final da tela */
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer p {
+    color: white;
+}
+
+/* ========================= */
+/* 8. Animações JS (Aparecer ao Rolar) */
+/* ========================= */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================= */
+/* 9. Responsividade (Media Queries) */
+/* ========================= */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 20px;
+        gap: 30px;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+    .produto {
+        flex: 0 1 45%; /* Duas colunas */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header e Menu Mobile */
+    header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    header .logo {
+        flex-grow: 1;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra o botão hamburguer */
+        order: 2; /* Coloca o botão após o logo no flexbox */
+        margin-left: auto;
+    }
+
+    header .search-form {
+        width: 100%; /* Ocupa a linha toda abaixo do logo/menu */
+        order: 4;
+        margin: 10px 0 0 0;
+    }
+
+    header nav {
+        order: 3;
+        width: 100%;
+        position: absolute;
+        top: 55px; /* Ajuste para caber abaixo do header */
+        left: 0;
+        background-color: #000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: none; /* Escondido por padrão */
+        animation: slideDown 0.3s ease-out;
+    }
+
+    header nav.active {
+        display: block; /* Mostra quando a classe 'active' é adicionada */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #333;
+    }
+    header nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Produtos */
+    .produtos {
+        padding: 40px 10px;
+    }
+
+    .produtos h2 {
+        font-size: 24px;
+    }
+
+    .produto {
+        flex: 0 1 100%; /* Uma coluna em mobile */
+        max-width: 100%;
+    }
+    
+    /* Catálogo com Filtros (produtos.html) */
+    .shop-content {
+        flex-direction: column;
+    }
+
+    .sidebar-filters {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
