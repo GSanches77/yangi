@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yangi - Sobre Nós</title>
+    <title>Sobre Nós - Yangi</title>
     <link rel="icon" href="assets/icon1.png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +12,7 @@
         <a href="index.html" aria-label="Voltar para a página inicial Yangi">
             <div class="logo"><img src="assets/yangi.jpeg" alt="Yangi Logo"></div>
         </a>
-        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav">
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -20,58 +20,51 @@
         <nav id="main-nav">
             <ul>
                 <li><a href="produtos.html">Shop</a></li>
-                <li><a href="produtos.html" data-collection="nagashi">"Nagashi"</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="minhaconta.html">Minha conta</a></li>
             </ul>
         </nav>
-        <form class="search-form" action="#" method="get" role="search">
-            <input type="text" placeholder="Buscar produtos" aria-label="Buscar produtos">
-            <button type="submit" aria-label="Executar busca">🔍</button>
+        <form class="search-form" action="#" method="get">
+            <input type="text" placeholder="Buscar produtos">
+            <button type="submit">🔍</button>
         </form>
     </header>
 
     <main>
-        <section id="hero-sobre" class="hero-sobre fade-in-section">
-            <h1>Nossa História</h1>
+        <section class="hero-banner-clean">
+            <h1>YANGI®</h1>
+            <p>Onde o asfalto encontra a sofisticação urbana.</p>
         </section>
-        
-        <div class="video-overlay-player fade-in-section">
-            <video autoplay loop muted playsinline controls class="overlay-video">
-                <source src="assets/VIDEO YANGI.mp4" type="video/mp4">
-                <source src="assets/VIDEO YANGI.mov" type="video/quicktime">
-                Seu navegador não suporta a tag de vídeo.
-            </video>
-        </div>
-        
-        <img src="assets/sobre.jpeg" class="imagem-sobre fade-in-section" alt="Imagem que representa a cultura streetwear e urbana">
-        
-        <section class="conteudo-sobre">
-            <div class="texto-missao fade-in-section">
-                <h2>A Yangi</h2>
-                <p>Fundada em Guarulhos - SP e atuando por **oito anos** no mercado streetwear, a Yangi não é apenas uma marca, é um movimento. Nossas peças refletem a essência e o **estilo de vida** autêntico do jovem brasileiro.
-                </p>
+
+        <div class="container-content">
+            <div class="image-showcase fade-in-section">
+                <img src="assets/sobre.jpeg" alt="Estilo de vida Yangi">
             </div>
 
-            <div class="texto-missao fade-in-section" style="animation-delay: 0.3s;">
-                <h2>Nossa Missão</h2>
-                <p>Nossa missão é levar a cultura **hip-hop e urbana** das ruas às lojas de luxo, unindo qualidade premium com design inovador. Acreditamos que a moda é uma forma poderosa de expressão.
-                </p>
-            </div>
-            
-            <div class="texto-missao fade-in-section" style="animation-delay: 0.6s;">
-                <h2>Visão de Futuro</h2>
-                <p>Continuar a inovar e expandir nossa influência, mantendo o compromisso com a produção sustentável e o apoio à comunidade local de artistas e criadores.
-                </p>
-            </div>
-        </section>
+            <section class="editorial-grid">
+                <div class="editorial-block fade-in-section">
+                    <span class="tag">História</span>
+                    <h2>A Essência</h2>
+                    <p>Fundada em Guarulhos - SP, a Yangi nasceu da necessidade de traduzir o movimento das ruas para peças de alta qualidade. Há oito anos, conectamos a cultura brasileira ao design contemporâneo.</p>
+                </div>
+
+                <div class="editorial-block fade-in-section">
+                    <span class="tag">Propósito</span>
+                    <h2>Missão Urbana</h2>
+                    <p>Nossa missão é democratizar o luxo através do streetwear. Unimos a força do hip-hop com acabamentos premium, transformando cada peça em uma forma de expressão artística.</p>
+                </div>
+
+                <div class="editorial-block fade-in-section">
+                    <span class="tag">Futuro</span>
+                    <h2>Visão</h2>
+                    <p>Expandir nossa influência mantendo a sustentabilidade e o apoio à cena local. A Yangi não fabrica apenas roupas; nós construímos uma comunidade.</p>
+                </div>
+            </section>
+        </div>
     </main>
     
     <footer>
         <p>© 2025 Yangi. Todos os direitos reservados.</p>
-        <p>Localização: Guarulhos - SP</p>
-        <p>Contato: (11) 94709-0626</p>
-        <p>Instagram: @yangi.co</p>
     </footer>
 
     <script src="js/common.js"></script>

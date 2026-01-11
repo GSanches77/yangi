@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('account-form');
+    if (!form) return; // Segurança: só executa se o formulário existir na página
+
     const telefoneInput = document.getElementById('telefone');
     const cpfInput = document.getElementById('cpf');
-    const emailInput = document.getElementById('email');
 
     function applyMask(input, mask) {
+        if (!input) return;
         input.addEventListener('input', (e) => {
             let value = e.target.value.replace(/\D/g, '');
             let maskedValue = '';
@@ -18,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (mask === 'tel') {
                 if (value.length > 0) maskedValue += '(' + value.substring(0, 2) + (value.length > 2 ? ') ' : '');
                 if (value.length > 2) {
-                    if (value.length > 10) {
+                    if (value.length > 10) { // Celular com 9 dígitos
                         maskedValue += value.substring(2, 7) + (value.length > 7 ? '-' : '');
                         if (value.length > 7) maskedValue += value.substring(7, 11);
-                    } else {
+                    } else { // Fixo com 8 dígitos
                         maskedValue += value.substring(2, 6) + (value.length > 6 ? '-' : '');
                         if (value.length > 6) maskedValue += value.substring(6, 10);
                     }
@@ -36,29 +38,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateField(input) {
         const errorMessage = document.getElementById(`error-${input.id}`);
-        errorMessage.textContent = '';
+        if (errorMessage) errorMessage.textContent = '';
         input.classList.remove('error');
 
+        // Validação básica de campo vazio
         if (input.validity.valueMissing) {
-            errorMessage.textContent = 'Este campo é obrigatório.';
+            if (errorMessage) errorMessage.textContent = 'Este campo é obrigatório.';
             input.classList.add('error');
             return false;
         }
 
+        // Validação de E-mail
         if (input.id === 'email' && !input.validity.valid) {
-            errorMessage.textContent = 'Por favor, insira um e-mail válido.';
+            if (errorMessage) errorMessage.textContent = 'Insira um e-mail válido.';
             input.classList.add('error');
             return false;
         }
 
+        // Validação de CPF (tamanho)
         if (input.id === 'cpf' && input.value.replace(/\D/g, '').length !== 11) {
-            errorMessage.textContent = 'CPF inválido (necessita de 11 dígitos).';
+            if (errorMessage) errorMessage.textContent = 'O CPF deve ter 11 dígitos.';
             input.classList.add('error');
             return false;
         }
 
+        // Validação de Telefone (tamanho)
         if (input.id === 'telefone' && input.value.replace(/\D/g, '').length < 10) {
-            errorMessage.textContent = 'Telefone inválido (mínimo 10 dígitos com DDD).';
+            if (errorMessage) errorMessage.textContent = 'Telefone incompleto.';
             input.classList.add('error');
             return false;
         }
@@ -66,29 +72,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    // Valida ao sair do campo
     form.querySelectorAll('input').forEach(input => {
-        input.addEventListener('blur', () => {
-            validateField(input);
+        input.addEventListener('blur', () => validateField(input));
+        // Remove o erro enquanto o usuário digita para melhorar a experiência
+        input.addEventListener('input', () => {
+            input.classList.remove('error');
+            const err = document.getElementById(`error-${input.id}`);
+            if (err) err.textContent = '';
         });
     });
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
         let formIsValid = true;
 
         form.querySelectorAll('input').forEach(input => {
-            if (!validateField(input)) {
-                formIsValid = false;
-            }
+            if (!validateField(input)) formIsValid = false;
         });
 
         if (formIsValid) {
-            alert('Formulário enviado com sucesso! Simulando criação de conta/login.');
-            console.log('Dados submetidos:', Object.fromEntries(new FormData(form)));
-            form.reset();
-        } else {
-            alert('Por favor, corrija os erros no formulário antes de prosseguir.');
+            // Efeito visual de carregamento no botão (opcional)
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = 'PROCESSANDO...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Conta Yangi acessada com sucesso!');
+                console.log('Dados:', Object.fromEntries(new FormData(form)));
+                btn.textContent = originalText;
+                btn.disabled = false;
+                // form.reset(); // Opcional
+            }, 1500);
         }
     });
 });

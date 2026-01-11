@@ -20,7 +20,6 @@
         <nav id="main-nav">
             <ul>
                 <li><a href="produtos.html">Shop</a></li>
-                <li><a href="produtos.html" data-collection="nagashi">"Nagashi"</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="minhaconta.html">Minha conta</a></li>
             </ul>
@@ -33,41 +32,49 @@
 
     <main>
         <section class="login-form fade-in-section">
-            <h2>Criar / Acessar Conta</h2>
+            <h2>Minha Conta</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-size: 14px; color: #666;">Crie seu cadastro ou acesse sua conta Yangi.</p>
+            
             <form id="account-form" action="#" method="post" novalidate>
-                <fieldset>
-                    <legend>Dados Pessoais</legend>
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required minlength="2">
-                    <span class="error-message" id="error-nome"></span>
+                <div class="form-container-modern">
+                    <div class="input-field">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                        <span class="error-message" id="error-nome"></span>
+                    </div>
 
-                    <label for="sobrenome">Sobrenome</label>
-                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required minlength="2">
-                    <span class="error-message" id="error-sobrenome"></span>
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
-                    <span class="error-message" id="error-email"></span>
+                    <div class="input-field">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required>
+                        <span class="error-message" id="error-sobrenome"></span>
+                    </div>
 
-                    <label for="telefone">Telefone (ex: 11999999999)</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required maxlength="15" data-mask="tel">
-                    <span class="error-message" id="error-telefone"></span>
+                    <div class="input-field full-width">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                        <span class="error-message" id="error-email"></span>
+                    </div>
 
-                    <label for="cpf">CPF (ex: 999.999.999-99)</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="999.999.999-99" required maxlength="14" data-mask="cpf">
-                    <span class="error-message" id="error-cpf"></span>
-                </fieldset>
+                    <div class="input-field">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required data-mask="tel">
+                        <span class="error-message" id="error-telefone"></span>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="999.999.999-99" required data-mask="cpf">
+                        <span class="error-message" id="error-cpf"></span>
+                    </div>
+                </div>
                 
-                <button type="submit" id="submit-button">Criar Conta / Login</button>
+                <button type="submit" class="add-to-cart">CRIAR CONTA / ACESSAR</button>
             </form>
         </section>
     </main>
-
+    
     <footer>
         <p>© 2025 Yangi. Todos os direitos reservados.</p>
-        <p>Contato: (11) 94709-0626</p>
-        <p>Instagram: @yangi.co</p>
-        <p>Desenvolvimento: Gustavo Sanches & Arthur Barros</p>
     </footer>
 
     <script src="js/common.js"></script>
